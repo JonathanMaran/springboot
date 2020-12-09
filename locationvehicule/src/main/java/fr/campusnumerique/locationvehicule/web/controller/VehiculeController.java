@@ -18,21 +18,25 @@ public class VehiculeController {
         return vehiculeDao.findAll();
     }
 
-    //Récupérer un produit par son Id
+    //Récupérer un vehicule par son Id
     @GetMapping(value = "/Vehicules/{id}")
     public Vehicule afficherUnVehicule(@PathVariable int id) {
         return vehiculeDao.findById(id);
     }
 
-    //ajouter un produit
+    //ajouter un vehicule
     @PostMapping(value = "/Vehicules")
     public void ajouterVehicule(@RequestBody Vehicule vehicule) {
         vehiculeDao.save(vehicule);
     }
 
-    //supprimer un produit
+    //supprimer un vehicule
     @DeleteMapping(value = "/Vehicules/{id}")
     public void supprimerVehicule(@PathVariable int id) {
         vehiculeDao.delete(id);
     }
+
+    //modifier un vehicule
+    @PutMapping(value = "/Vehicules/{id}")
+    public void modifierVehicule(@PathVariable int id, @RequestBody Vehicule vehicule) { vehiculeDao.put(id, vehicule);}
 }

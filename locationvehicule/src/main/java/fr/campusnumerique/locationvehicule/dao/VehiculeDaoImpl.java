@@ -33,14 +33,30 @@ public class VehiculeDaoImpl implements VehiculeDao {
     }
 
     @Override
-    public Vehicule save(Vehicule vehicule) {
+    public void save(Vehicule vehicule) {
         vehicules.add(vehicule);
-        return vehicule;
     }
 
     @Override
     public void delete(int id) {
-        vehicules.remove(id-1);
+        int index = 0;
+        for(Vehicule vehicule: vehicules) {
+            if(vehicule.getId() == id) {
+                vehicules.remove(index);
+            }
+            index += 1;
+        }
+    }
+
+    @Override
+    public void put(int id, Vehicule nouveauVehicule) {
+        int index = 0;
+        for(Vehicule vehicule: vehicules) {
+            if(vehicule.getId() == id) {
+                vehicules.set(index, nouveauVehicule);
+            }
+            index += 1;
+        }
     }
 
 }

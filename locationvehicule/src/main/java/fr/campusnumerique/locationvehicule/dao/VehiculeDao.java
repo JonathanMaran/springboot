@@ -8,7 +8,9 @@ public interface VehiculeDao {
 
     public List<Vehicule> findAll();
     public Vehicule findById(int id);
-    public Vehicule save(Vehicule vehicule);
+    void save(Vehicule vehicule);
     void delete(int id);
+    void put(int id, Vehicule nouveauVehicule);
+
 
 }
