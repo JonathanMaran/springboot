@@ -40,24 +40,31 @@ public class VehiculeController {
         return vehiculeDao.findById(id);
     }
 
-    @GetMapping(value = "test/produits/{prixLimit}")
+    //Récupérer les véhicules avec un prix plus élevé que...
+    @GetMapping(value = "test/vehicules/prix/{prixLimit}")
     public List<Vehicule> testeDeRequetes(@PathVariable int prixLimit) {
         return vehiculeDao.findByPrixGreaterThan(prixLimit);
     }
-//
-//    //ajouter un vehicule
-//    @PostMapping(value = "/Vehicules")
-//    public void ajouterVehicule(@RequestBody Vehicule vehicule) {
-//        vehiculeDao.save(vehicule);
-//    }
-//
-//    //supprimer un vehicule
-//    @DeleteMapping(value = "/Vehicules/{id}")
-//    public void supprimerVehicule(@PathVariable int id) {
-//        vehiculeDao.delete(id);
-//    }
-//
-//    //modifier un vehicule
-//    @PutMapping(value = "/Vehicules/{id}")
-//    public void modifierVehicule(@PathVariable int id, @RequestBody Vehicule vehicule) { vehiculeDao.put(id, vehicule);}
+
+    @GetMapping(value = "test/vehicules/{recherche}")
+    public List<Vehicule> testeDeRequetes(@PathVariable String recherche) {
+        return vehiculeDao.findByMarqueLike("%"+recherche+"%");
+    }
+
+    //ajouter un vehicule
+    @PostMapping(value = "/Vehicules")
+    public void ajouterVehicule(@RequestBody Vehicule vehicule) {
+        vehiculeDao.save(vehicule);
+    }
+
+    //Supprimer un véhicule
+    @DeleteMapping (value = "/Vehicules/{id}")
+    public void supprimerProduit(@PathVariable int id) {
+
+        vehiculeDao.delete(vehiculeDao.findById(id));
+    }
+
+    //modifier un vehicule
+    @PutMapping(value = "/Vehicules")
+    public void modifierVehicule(@RequestBody Vehicule vehicule) { vehiculeDao.save(vehicule);}
 }

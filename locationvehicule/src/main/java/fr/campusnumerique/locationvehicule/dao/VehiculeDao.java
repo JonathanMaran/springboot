@@ -9,4 +9,5 @@ import java.util.List;
 public interface VehiculeDao extends JpaRepository<Vehicule, Integer> {
     Vehicule findById(int id);
     List<Vehicule> findByPrixGreaterThan(int prixLimit);
+    List<Vehicule> findByMarqueLike(String recherche);
 }
