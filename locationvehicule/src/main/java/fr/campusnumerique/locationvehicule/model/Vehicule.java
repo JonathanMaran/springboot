@@ -1,6 +1,14 @@
 package fr.campusnumerique.locationvehicule.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class Vehicule {
+
+    @Id
+    @GeneratedValue
     private int id;
     private String marque;
     private String modele;
@@ -13,6 +21,10 @@ public class Vehicule {
         this.modele = modele;
         this.color = color;
         this.prix = prix;
+    }
+
+    public Vehicule() {
+
     }
 
     public int getId() {
