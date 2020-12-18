@@ -34,3 +34,23 @@ Le but est de simplifier le travail des développeurs en devinant les beans requ
 
 @Query = permet d'effectuer une requête
 
+SpringBoot sert à gérer l'instanciation de tous mes objets par le biais des annotations. 
+JPA = couche entre java et la BDD
+
+
+
+MICROSERVICES:
+Approche architecturale du développement d'applications.
+=> Décomposition d'une application pour en isoler les fonctions clés.
+Chacune de ces fonctions, appelées "service", peuvent être développées et déployées indépendamment les unes des autres.
+L'objectif est multiple: 
+- chaque service fonctionne (ou dysfonctionne) sans impacter les autres.
+- travail en équipe
+- multiplicité des langages 
+- Déploiement continu possible
+
+Inconvénients:
+- nécessite un déploiement, des tests approfondis et ciblés
+- dépendances entre les services
+- 
+
